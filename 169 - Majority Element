@@ -1,0 +1,22 @@
+
+## My solution
+function majorityElement(nums: number[]): number {
+    let mj:{[x:number]:number}={};
+    for(let i = 0; i<nums.length; i++){
+        let currNum = nums[i]
+        if(!mj[currNum]){
+            mj[currNum] = 1
+        }else{
+        mj[currNum]+=1;
+        }
+        if(mj[currNum]>(nums.length/2)){
+            return currNum
+        }
+    }
+};
+
+## Interasting solution
+function majorityElement(nums: number[]): number {
+    nums.sort((a,b)=>a-b)
+    return nums[Math.floor(nums.length/2)]
+};

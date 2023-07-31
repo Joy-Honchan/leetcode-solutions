@@ -1,0 +1,10 @@
+function rotate(nums: number[], k: number): void {
+    let steps:number;
+    if(k>=nums.length){
+        steps = k-nums.length
+    }else{
+        steps =k
+    }
+    let movingEle:number[] = nums.splice(nums.length-steps,steps);
+    nums.splice(0,0, ...movingEle);
+};

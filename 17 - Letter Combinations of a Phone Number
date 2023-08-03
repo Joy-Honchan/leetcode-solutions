@@ -1,0 +1,18 @@
+function letterCombinations(digits: string): string[] {
+  if (digits.length === 0) return [];
+  const keyboard:{[x:number]:string} = {"2": "abc", "3": "def", "4": "ghi",  "5": "jkl", "6": "mno", "7": "pqrs", "8": "tuv", "9": "wxyz" }
+	let result:string[] = [];
+
+	function recursive(currLetters:string, remainNums:string){
+		if(remainNums.length===0){
+			result.push(currLetters);
+			return
+		}
+		let letters = keyboard[remainNums[0]];
+		for(const singleLetter of letters){		
+			recursive(currLetters+singleLetter,remainNums.slice(1))
+		}
+	}
+	recursive("",digits)
+  return result
+};

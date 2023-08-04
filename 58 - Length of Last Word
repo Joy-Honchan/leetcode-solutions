@@ -1,0 +1,9 @@
+// my solution
+function lengthOfLastWord(s: string): number {
+    const wordNoSpace =s.trim()
+    const wordArr = wordNoSpace.split(" ");
+    return wordArr[wordArr.length-1].length
+};
+
+// interesting solution
+ // instead of wordArr[wordArr.length-1], someone use wordArr.pop(), it returns the last element

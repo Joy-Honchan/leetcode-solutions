@@ -1,0 +1,10 @@
+function reverseWords(s: string): string {
+    const wArr: string[] = s.split(" ").filter(item=>item.length!==0);
+    return wArr.reverse().join(" "); 
+};
+
+// reverse without Array.reverse
+    let newArr:string[] = [];
+    for( const index in wArr){
+        newArr[wArr.length-1-Number(index)] = wArr[index];
+    }

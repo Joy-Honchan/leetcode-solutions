@@ -1,0 +1,17 @@
+function isValid(s: string): boolean {
+    const sArr:string[] =s.split("")
+
+    for(let i = 1; i<sArr.length; i++){
+        const val = `${sArr[i-1]}${sArr[i]}`
+        if(val === "()" || val === "{}" || val === "[]"){
+            sArr.splice(i-1,2);
+            i -= 2
+        }
+    }
+    if(sArr.length===0){
+        return true
+    } else{
+        return false
+    }
+};
+

@@ -1,0 +1,15 @@
+// Two pointers + sliding window
+function minSubArrayLen(target: number, nums: number[]): number {
+	let startIndex = 0, winSum = 0, minLen = nums.length; 
+
+	  for(let endIndex = 0; endIndex < nums.length; endIndex++){
+	    winSum += nums[endIndex]
+
+	    while( winSum >= target ){
+	      minLen = Math.min(minLen, endIndex-startIndex+1);
+	      winSum -= nums[startIndex];
+	      startIndex++
+	    }
+	  }
+  return startIndex===0 && minLen === nums.length? 0 : minLen;
+};
